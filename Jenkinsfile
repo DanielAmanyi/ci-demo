@@ -1,8 +1,8 @@
 pipeline{
     agent any
 	tools {
-        maven 'maven-3.6.3'
-        jdk 'jdk8'
+        maven 'cba-maven-3.6.3'
+        jdk 'cbajdk'
     }
     stages{
         stage('init'){
@@ -36,7 +36,7 @@ pipeline{
                 script{                    
                     withAWS(credentials: 'my-cba-aws-credential', region: 'eu-west-2') {
                         sh '''echo "Uploading the tested jar file to s3 for later deployments" '''
-                        s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'maven_project/target/my-app-1.0-SNAPSHOT.jar', bucket:'document-ak', path:'ci-demo/javaapp/myapp.jar')
+                        s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'maven_project/target/my-app-1.0-SNAPSHOT.jar', bucket:'https://s3.console.aws.amazon.com/s3/buckets/cf-templates-ko7mdqikos71-us-east-1?region=us-east-1', path:'ci-demo/javaapp/myapp.jar')
                     }
                 }
             }
