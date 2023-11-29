@@ -8,7 +8,7 @@ pipeline{
         stage('init'){
             steps{
                 script{
-                    println("Hello world")
+                    println("Hello world from Jenkins")
                 }
             }
         }
