@@ -2,7 +2,7 @@ pipeline{
     agent any
 	tools {
         maven 'cba-maven-3.6.3'
-        jdk 'type cba-jdk'
+        jdk 'cba-jdk'
     }
     stages{
         stage('init'){
@@ -26,7 +26,7 @@ pipeline{
             steps {
 		script{
 	            dir('maven_project'){
-			sh 'mvn test' 
+			sh 'mvn test'
 		    }
 		}
             }
