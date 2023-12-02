@@ -1,4 +1,4 @@
-Hi this is sample file
+
 hi ...
 
 Gradually beginning to understand Jenkins
